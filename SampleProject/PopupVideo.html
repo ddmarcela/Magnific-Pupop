@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<title>Example Project2</title>
+    <head>
+        <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="magnific-popup/jquery.magnific-popup.js"></script>
+    </head>
+    <style>
+        .mfp-fade.mfp-bg {
+			opacity: 0;
+			-webkit-transition: all 0.15s ease-out; 
+			-moz-transition: all 0.15s ease-out; 
+			transition: all 0.15s ease-out;
+		}
+		.mfp-fade.mfp-bg.mfp-ready {
+			opacity: 0.8;
+		}
+		.mfp-fade.mfp-bg.mfp-removing {
+			opacity: 0;
+		}
+
+		.mfp-fade.mfp-wrap .mfp-content {
+			opacity: 0;
+			-webkit-transition: all 0.15s ease-out; 
+			-moz-transition: all 0.15s ease-out; 
+			transition: all 0.15s ease-out;
+		}
+		.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+			opacity: 1;
+		}
+		.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+			opacity: 0;
+		}
+    </style>
+
+    <body>
+        <a class="test-popup-link"  href="https://www.youtube.com/watch?v=Ji5o496OA5Y"><img src="ig.jpg" width="500px" height="300px"></a>
+        
+		<script type="text/javascript">
+           	$(document).ready(function() {
+			$('.popup-youtube').magnificPopup({
+			disableOn: 700,
+			type: 'iframe',
+			mainClass: 'mfp-fade',
+			removalDelay: 160,
+			preloader: false,
+
+			fixedContentPos: false
+			});
+		});
+        </script>
+    </body>
+</html>

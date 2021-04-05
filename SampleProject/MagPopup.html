@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Example Project</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<style>
+    body {
+        background-color:#e0e0e0;
+    }
+    @keyframes top-to-down {
+    0% {
+        top: 0;
+        opacity: 0;
+    }
+    100% {
+        top:50%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        }
+    }
+    #overlay {
+        display:none;
+        z-index:2;
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background-color:#000;
+        opacity:.7;
+    }
+    img {
+        width:40%;
+        transition: transform .5s;
+    }
+    .modal {
+        display:none;
+        z-index:2;
+        position:fixed;
+        top:0;
+        left:50%;
+        transform:translate(-50%);
+        width:90vw;
+        max-width:700px;
+        height:300px;
+        overflow-y:auto;
+        background-color:#FFF;
+        border: 1px solid #888;
+        border-radius: 5px;
+        animation: top-to-down .5s;
+        animation-fill-mode: forwards;
+    }
+</style>
+
+<body>
+    <h1>Modal Popup</h1>
+        <p>Click the image</p>
+    <div id="overlay"></div>
+    <div class="box-container">
+        <div class="box">
+        <div class="thumbnail">
+            <div class="thumbnail-overlay"></div>
+                <img src="ig.jpg">
+        </div>
+        <div class="modal">
+            <div id="test-modal" class="white-popup-block mfp-hide">
+                <h1>Modal</h1>
+                    <a class="popup-youtube" href="https://www.youtube.com/watch?v=Ji5o496OA5Y">Open YouTube video</a><br>
+            </div>
+        </div>
+    </div>
+    </div>
+
+<script type="text/javascript">
+    
+    function main() {
+    addListeners(); 
+    }
+    addEventListener('load',main);
+
+    function showInfo() {
+    removeListeners();
+  
+        var modal = this.parentNode.getElementsByClassName('modal')[0];
+        modal.style.display = 'block';
+        var close = modal.getElementsByClassName('close')[0];
+        close.addEventListener('click',hideInfo);
+        document.getElementById('overlay').addEventListener('click',hideInfo);
+    }
+
+    function hideInfo() {
+        var boxes = document.querySelectorAll('.modal');
+        for (var i=0;i<boxes.length;i++) {
+        boxes[i].style.display = 'none';
+    }
+    addListeners();
+    }
+
+    function addListeners() {
+        var boxes = document.querySelectorAll('.thumbnail');
+        for (var i=0;i<boxes.length;i++) {
+        boxes[i].addEventListener('click',showInfo.bind(boxes[i]));
+     }
+    handleOverlay('none');
+    }
+
+    function removeListeners() {
+        var boxes = document.querySelectorAll('.thumbnail');
+        for (var i=0;i<boxes.length;i++) {
+        boxes[i].removeEventListener('click',showInfo);
+        }
+        handleOverlay('block');
+    }
+
+    function handleOverlay(status) {
+        var overlay = document.getElementById('overlay');
+        overlay.style.display = status;
+    }
+
+</script>
+
+</body>
+
+</html>
