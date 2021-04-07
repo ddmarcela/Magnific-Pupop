@@ -5,15 +5,31 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Test</title>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
 </head>
 
 <body>
 <a class="popup-youtube" href="https://www.youtube.com/watch?v=pBFQdxA-apI">
     <img src="img/bg3.png" width="500px" height="300px"></a>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+<script>
+    $(document).ready(function() {
+    $('.popup-youtube').magnificPopup({
+        disableOn: 700,
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        removalDelay: 160,
+        preloader: false,
 
+        fixedContentPos: false
+    });
+});
+
+</script>    
+
+    
 </body>
 
 </html>
